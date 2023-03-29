@@ -1,0 +1,11 @@
+$IMPORT_RDS
+/** @type {import('tgsnake').Options } */
+const config = {
+  apiHash : '$API_HASH',
+  apiId : $API_ID,
+  login : $LOGIN,
+  logLevel : ['error','info'],
+  clientOptions : $CLIENT_OPTIONS,
+  plugins : []
+}
+module.exports = config
