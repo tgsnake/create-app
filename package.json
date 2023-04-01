@@ -1,6 +1,6 @@
 {
   "name": "create-tgsnake-app",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "CLI tools for installing tgsnake",
   "bin": "./dist/src/index.js",
   "scripts": {
@@ -15,7 +15,7 @@
     "userbot"
   ],
   "bugs": "https://github.com/tgsnake/create-app/issues",
-  "repository": "https://github.com/create-app/tgsnake",
+  "repository": "https://github.com/tgsnake/create-app",
   "author": "butthx",
   "license": "MIT",
   "files": [
