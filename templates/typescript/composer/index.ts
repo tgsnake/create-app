@@ -2,7 +2,7 @@
 import { Snake, Composer } from 'tgsnake';
 import path from 'path';
 import fs from 'fs';
-// save your credentials with tgsnake.condig.js
+// save your credentials with tgsnake.config.js
 const client = new Snake();
 function loadPlugin(directory: string = 'plugins') {
   const location = path.join(__dirname, directory);

@@ -1,6 +1,6 @@
 // import tgsnake package
 const { Snake } = require('tgsnake');
-// save your credentials with tgsnake.condig.js
+// save your credentials with tgsnake.config.js
 const client = new Snake();
 // example start command
 client.cmd('start', async (ctx) => {

@@ -158,6 +158,10 @@ export async function createApp({
           path.join(route, '.yarnrc.yml'),
           `defaultSemverRangePrefix: ''\nlockfileFilename: yarn.lock\nnodeLinker: node-modules`
         );
+        await spawnSync('yarn', ['set', 'version', 'berry'], {
+          encoding: 'utf8',
+          cwd: route,
+        });
       }
       fs.writeFileSync(path.join(route, 'yarn.lock'), '');
       fs.writeFileSync(
