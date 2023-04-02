@@ -91,7 +91,7 @@ export async function createApp({
         botToken : '',
         sessionName : '${sessionName}',
         forceDotSession : ${!redisSession},
-        session : ${redisSession ? `new RedisSession('${sessionName}')` : 'undefined'}
+        ${redisSession ? `session : new RedisSession('${sessionName}')` : ''}
       }`
         );
       fs.writeFileSync(path.join(route, 'tgsnake.config.js'), config);
@@ -276,7 +276,7 @@ export async function createApp({
         botToken : '',
         sessionName : '${sessionName}',
         forceDotSession : ${!redisSession},
-        session : ${redisSession ? `new RedisSession('${sessionName}')` : 'undefined'}
+        ${redisSession ? `session : new RedisSession('${sessionName}')` : ''}
       }`
       );
     fs.writeFileSync(path.join(route, 'tgsnake.config.js'), config);
