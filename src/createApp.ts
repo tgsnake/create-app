@@ -233,7 +233,10 @@ export async function createApp({
     }
     copy(path.join(__dirname, '../', '../', 'templates', 'base'), route);
     if (typescript) {
-      copy(path.join(__dirname, '../', '../', 'templates', 'typescript', 'tsconfig.json'), route);
+      copy(
+        path.join(__dirname, '../', '../', 'templates', 'typescript', 'tsconfig.json'),
+        path.join(route, 'tsconfig.json')
+      );
     }
     let config = fs.readFileSync(
       path.join(__dirname, '../', '../', 'templates', 'config.txt'),
@@ -318,8 +321,9 @@ function copy(from, to) {
     try {
       fs.copyFileSync(from, to);
     } catch (error) {
-      let splited = from.split('/');
+      let splited = to.split('/');
       splited.pop(); // the last element is file, so remove it
+      console.log(from, to);
       if (!fs.existsSync(path.join(...splited))) {
         fs.mkdirSync(path.join(...splited));
         copy(from, to);
