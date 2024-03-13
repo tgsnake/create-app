@@ -31,7 +31,7 @@ const program = new Command(packageJson.name)
   .option('--rds, --use-redis-session', chalk.blue('Initialize project using redis session.'))
   .option(
     '--template <template>',
-    chalk.blue('Initialize project with available template "simple" or "composer".')
+    chalk.blue('Initialize project with available template "simple" or "composer".'),
   )
   .parse(process.argv)
   .opts();
@@ -39,10 +39,10 @@ const program = new Command(packageJson.name)
 const pkgManager = program.useYarn
   ? 'yarn'
   : program.useNpm
-  ? 'npm'
-  : program.usePnpm
-  ? 'pnpm'
-  : helpers.getPkgManager();
+    ? 'npm'
+    : program.usePnpm
+      ? 'pnpm'
+      : helpers.getPkgManager();
 
 if (program.template) {
   const validTemplate = ['simple', 'composer'];

@@ -1,5 +1,5 @@
 // import tgsnake package
-import { Snake, Composer } from 'tgsnake';
+import { Snake, Composer, shutdown } from 'tgsnake';
 import path from 'path';
 import fs from 'fs';
 // save your credentials with tgsnake.config.js
@@ -26,3 +26,4 @@ function loadPlugin(directory: string = 'plugins') {
 loadPlugin();
 // running the client instance
 client.run();
+shutdown(client);

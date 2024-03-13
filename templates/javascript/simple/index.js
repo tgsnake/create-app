@@ -1,5 +1,5 @@
 // import tgsnake package
-const { Snake } = require('tgsnake');
+const { Snake, shutdown } = require('tgsnake');
 // save your credentials with tgsnake.config.js
 const client = new Snake();
 // example start command
@@ -8,3 +8,4 @@ client.cmd('start', async (ctx) => {
 });
 // running the client instance
 client.run();
+shutdown(client);

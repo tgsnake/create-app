@@ -55,7 +55,7 @@ export async function createApp({
     if (!fs.existsSync(path.join(route, 'tgsnake.config.js'))) {
       let config = fs.readFileSync(
         path.join(__dirname, '../', '../', 'templates', 'config.txt'),
-        'utf8'
+        'utf8',
       );
       const { apiHash } = await prompts({
         type: 'text',
@@ -80,7 +80,7 @@ export async function createApp({
       config = config
         .replace(
           '$IMPORT_RDS',
-          redisSession ? "const { RedisSession } = require('@tgsnake/redis-session');" : ''
+          redisSession ? "const { RedisSession } = require('@tgsnake/redis-session');" : '',
         )
         .replace('$API_HASH', apiHash)
         .replace('$API_ID', apiId)
@@ -92,7 +92,7 @@ export async function createApp({
         sessionName : '${sessionName}',
         forceDotSession : ${!redisSession},
         ${redisSession ? `session : new RedisSession('${sessionName}')` : ''}
-      }`
+      }`,
         );
       fs.writeFileSync(path.join(route, 'tgsnake.config.js'), config);
     }
@@ -104,8 +104,8 @@ export async function createApp({
     console.log(chalk.blue(`Successfully creating your app in ./${route}!`));
     console.log(
       chalk.blue(
-        `Next step is follow the instructions in README.md file if available and install missing dependencies.`
-      )
+        `Next step is follow the instructions in README.md file if available and install missing dependencies.`,
+      ),
     );
     console.log('\n\n');
   } else {
@@ -123,7 +123,7 @@ export async function createApp({
     } else {
       fs.mkdirSync(route);
     }
-    let dependencies: Array<string> = ['tgsnake@alpha'];
+    let dependencies: Array<string> = ['tgsnake@latest'];
     let devDependencies: Array<string> = [];
     if (redisSession) {
       dependencies.push('@tgsnake/redis-session');
@@ -156,7 +156,7 @@ export async function createApp({
       if (major >= 2) {
         fs.writeFileSync(
           path.join(route, '.yarnrc.yml'),
-          `defaultSemverRangePrefix: ''\nlockfileFilename: yarn.lock\nnodeLinker: node-modules`
+          `defaultSemverRangePrefix: ''\nlockfileFilename: yarn.lock\nnodeLinker: node-modules`,
         );
         await spawnSync('yarn', ['set', 'version', 'berry'], {
           encoding: 'utf8',
@@ -171,7 +171,7 @@ export async function createApp({
           version: '1.0.0',
           packageManager: `yarn@${major}.${minor}.${patch}`,
           ...(typescript ? { scripts: { build: 'tsc' } } : {}),
-        })
+        }),
       );
       await spawnSync('yarn', ['add', ...dependencies], {
         encoding: 'utf8',
@@ -192,7 +192,7 @@ export async function createApp({
           name: route.split('/').join('-'),
           version: '1.0.0',
           ...(typescript ? { scripts: { build: 'tsc' } } : {}),
-        })
+        }),
       );
       await spawnSync('npm', ['install', ...dependencies], {
         encoding: 'utf8',
@@ -213,7 +213,7 @@ export async function createApp({
           name: route.split('/').join('-'),
           version: '1.0.0',
           ...(typescript ? { scripts: { build: 'tsc' } } : {}),
-        })
+        }),
       );
       await spawnSync('pnpm', ['install', ...dependencies], {
         encoding: 'utf8',
@@ -235,12 +235,12 @@ export async function createApp({
     if (typescript) {
       copy(
         path.join(__dirname, '../', '../', 'templates', 'typescript', 'tsconfig.json'),
-        path.join(route, 'tsconfig.json')
+        path.join(route, 'tsconfig.json'),
       );
     }
     let config = fs.readFileSync(
       path.join(__dirname, '../', '../', 'templates', 'config.txt'),
-      'utf8'
+      'utf8',
     );
     const { apiHash } = await prompts({
       type: 'text',
@@ -265,7 +265,7 @@ export async function createApp({
     config = config
       .replace(
         '$IMPORT_RDS',
-        redisSession ? "const { RedisSession } = require('@tgsnake/redis-session');" : ''
+        redisSession ? "const { RedisSession } = require('@tgsnake/redis-session');" : '',
       )
       .replace('$API_HASH', apiHash)
       .replace('$API_ID', apiId)
@@ -277,7 +277,7 @@ export async function createApp({
         sessionName : '${sessionName}',
         forceDotSession : ${!redisSession},
         ${redisSession ? `session : new RedisSession('${sessionName}')` : ''}
-      }`
+      }`,
       );
     fs.writeFileSync(path.join(route, 'tgsnake.config.js'), config);
     fs.mkdirSync(path.join(route, 'src'));
@@ -288,9 +288,9 @@ export async function createApp({
         '../',
         'templates',
         typescript ? 'typescript' : 'javascript',
-        template
+        template,
       ),
-      path.join(route, 'src')
+      path.join(route, 'src'),
     );
     if (process.platform === 'win32') {
       await spawnSync('CLS', [], { encoding: 'utf8', stdio: 'inherit' });
@@ -302,7 +302,7 @@ export async function createApp({
     if (typescript) {
       console.log(chalk.bold(chalk.blue(` - cd ${route}`)));
       console.log(
-        chalk.bold(chalk.blue(` - ${pkgManager} ${pkgManager === 'yarn' ? '' : 'run'} build`))
+        chalk.bold(chalk.blue(` - ${pkgManager} ${pkgManager === 'yarn' ? '' : 'run'} build`)),
       );
       console.log(chalk.bold(chalk.blue(` - node dist`)));
     } else {
