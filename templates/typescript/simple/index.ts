@@ -8,4 +8,3 @@ client.cmd('start', async (ctx) => {
 });
 // running the client instance
 client.run();
-shutdown(client);

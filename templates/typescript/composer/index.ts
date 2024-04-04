@@ -26,4 +26,3 @@ function loadPlugin(directory: string = 'plugins') {
 loadPlugin();
 // running the client instance
 client.run();
-shutdown(client);

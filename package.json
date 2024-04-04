@@ -1,6 +1,6 @@
 {
   "name": "create-tgsnake-app",
-  "version": "1.0.4",
+  "version": "1.0.6",
   "description": "CLI tools for installing tgsnake",
   "bin": "./dist/src/index.js",
   "scripts": {
@@ -23,10 +23,10 @@
     "templates/**/*"
   ],
   "devDependencies": {
-    "@types/node": "20.11.26",
+    "@types/node": "20.12.4",
     "@types/prompts": "2.4.9",
     "prettier": "3.2.5",
-    "typescript": "5.4.2"
+    "typescript": "5.4.3"
   },
   "dependencies": {
     "chalk": "4",
